@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Director(models.Model):
     nombre = models.CharField(max_length=50, null=False)
@@ -8,7 +9,7 @@ class Director(models.Model):
     fecha_fallecimiento = models.DateField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.nombre} {self.apellidos}'
+        return f'{self.nombre} {self.apellidos}'.upper()
 
 
 class Pelicula(models.Model):
@@ -19,4 +20,4 @@ class Pelicula(models.Model):
     director = models.ManyToManyField(Director)
 
     def __str__(self):
-        return self.titulo
+        return self.titulo.upper()

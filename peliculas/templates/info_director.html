@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información Director</title>
+</head>
+<body>
+    <h2>Peliculas del Director: {{ director }}</h2>
+    <h3>Fecha de Nacimiento: {{ director.fecha_nacimiento }}</h3>
+
+    {% if director.fecha_fallecimiento %}
+        <h3>Fecha de Fallecimiento: {{ director.fecha_fallecimiento }}</h3>
+    {% endif %}
+
+     <ul>
+        {% for pelicula in peliculas %}
+            <li><a href="{% url 'info_pelicula' pelicula.id %}">{{ pelicula }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
